@@ -1,5 +1,33 @@
 apply plugin: 'com.android.library'
 
+def VERSION_NAME = "0.1"
+
+ext {
+    user = project.hasProperty('user') ? project.property('user') : System.getenv('BINTRAY_USER')
+    apiKey = project.hasProperty('key') ? project.property('key') : System.getenv('BINTRAY_API_KEY')
+    bintrayRepo = 'maven'
+    bintrayName = 'arc-chart-view'
+
+    publishedGroupId = 'br.com.zup'
+    libraryName = 'Arc Chart'
+    artifact = 'arc-chart-view'
+
+    libraryDescription = 'Simple Android chart drawed in arc shape'
+
+    siteUrl = 'https://github.com/rafaelneiva/ArcChartView'
+    gitUrl = 'https://github.com/rafaelneiva/ArcChartView.git'
+
+    libraryVersion = VERSION_NAME
+
+    developerId = 'rafaelneiva'
+    developerName = 'Rafael Neiva'
+    developerEmail = 'faelviolero@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
 android {
     compileSdkVersion 25
     buildToolsVersion "24.0.2"
@@ -8,7 +36,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 25
         versionCode 1
-        versionName "1.0"
+        versionName VERSION_NAME
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -29,3 +57,8 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.0.1'
     testCompile 'junit:junit:4.12'
 }
+
+
+// Place it at the end of the file
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
