@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ArcChartView">
+        <attr name="acv_progress_color" format="color"/>
+        <attr name="acv_bg_color" format="color"/>
+        <attr name="acv_stroke_width" format="dimension"/>
+        <attr name="acv_progress" format="integer"/>
+    </declare-styleable>
+
+</resources>
